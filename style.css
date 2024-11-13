@@ -1,0 +1,206 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    color: white;
+    overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.alphacoders.com/137/thumb-1920-1379128.png');
+    background-size: cover; /* Ajusta el tamaño del fondo para cubrir toda la página */
+    background-position: center; /* Centra el fondo */
+    background-attachment: fixed; /* Fondo fijo al hacer scroll */
+    background-repeat: no-repeat; /* Evita que se repita */
+    filter: blur(8px); /* Aplica desenfoque */
+    z-index: -1; /* Asegura que el fondo esté detrás del contenido */
+}
+
+header {
+    background-color: rgba(33, 76, 124, 0.7); /* Fondo semitransparente para el encabezado */
+    padding: 1rem;
+    color: white;
+}
+
+.anim-text {
+    font-family: 'Signika', sans-serif; /* Aplica la fuente Signika */
+    font-weight: 600; /* Peso para un efecto destacado */
+    font-size: 2.5rem; /* Ajusta el tamaño según tus necesidades */
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra sutil */
+    animation: slideFadeIn 2s ease-in-out forwards, pulse 1s 1s ease-in-out infinite alternate;
+}
+
+@keyframes slideFadeIn {
+    0% {
+        transform: translateY(-20px); 
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); } 
+}
+
+.anim-image {
+    width: 300px;
+    animation: moveX 7s infinite linear; /* Se aumenta la duración para un movimiento más suave */
+}
+
+@keyframes moveX {
+    0% {
+        transform: translateX(-1000px); /* Comienza muy a la izquierda, fuera de la pantalla */
+        opacity: 0; /* Invisible al comenzar */
+    }
+    5% {
+        transform: translateX(-400px); /* Aparece rápidamente desde la izquierda */
+        opacity: 1; /* Se hace visible de inmediato */
+    }
+    50% {
+        transform: translateX(100vw); /* Cruza la pantalla hacia la derecha */
+        opacity: 1; /* Visible mientras cruza */
+    }
+    55% {
+        transform: translateX(110vw); /* Fuera de la pantalla a la derecha */
+        opacity: 0; /* Desaparece rápidamente */
+    }
+    60% {
+        transform: translateX(-1000px); /* Salta al extremo izquierdo */
+        opacity: 0; /* Invisible al reaparecer */
+    }
+    65% {
+        transform: translateX(-400px); /* Reaparece rápidamente desde la izquierda */
+        opacity: 1; /* Visible al reaparecer */
+    }
+    100% {
+        transform: translateX(100vw); /* Se prepara para repetir el ciclo */
+        opacity: 1;
+    }
+}
+
+.page1-image {
+    width: 17%; /* Ajusta el tamaño de la imagen para que no ocupe todo el ancho */
+    margin: 0 auto; /* Centra la imagen */
+    animation: moveX 7s infinite linear; /* Se aumenta la duración para un movimiento más suave */
+}
+
+section {
+    background-color: rgba(33, 76, 124, 0.7); /* Mismo fondo que el header */
+    padding: 1.5rem;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para darle profundidad */
+    color: white;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente para la tabla */
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #0073e6;
+    color: white;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery .car-item {
+    width: 300px; /* Ancho fijo para cada contenedor */
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para las tarjetas */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Sombra alrededor de las imágenes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.gallery img {
+    width: 100%; /* Ancho completo del contenedor */
+    height: 200px; /* Altura fija */
+    object-fit: cover; /* Ajusta la imagen para que se recorte y mantenga la proporción */
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Transición para el hover */
+}
+
+.gallery img:hover {
+    transform: scale(1.1); /* Efecto de zoom */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Sombra más intensa */
+}
+
+.gallery .car-item:hover {
+    transform: translateY(-10px); /* Elevación al pasar el mouse sobre el contenedor */
+}
+
+.gallery .car-item p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+}
+
+.styled-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: rgba(0, 115, 230, 0.8); /* Botón semitransparente */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.styled-button:hover {
+    background-color: rgba(0, 91, 181, 0.8);
+    transform: scale(1.05); /* Pequeño zoom al pasar el cursor */
+}
+
+.styled-button:active {
+    background-color: rgba(0, 63, 127, 0.8);
+    transform: scale(0.95); /* Pequeño encogimiento al hacer clic */
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para el pie de página */
+    color: white;
+}
